@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
-public class ZmanimUnitTests {
+public class ZmanimTest {
 
     @Test
     public void sofZmanKidushLevana_Jerusalem() {
@@ -127,9 +127,9 @@ public class ZmanimUnitTests {
                 cal.set(Calendar.DAY_OF_YEAR, d);
                 zcal.setCalendar(cal);
                 date = zcal.getSunriseOffsetByDegrees(offsetZenith);
+                assertNotNull("day=" + d + " zenith=" + offsetZenith, date);
                 dateExpected = m.get(d);
                 if (dateExpected != null) {
-                    assertNotNull("day=" + d + " zenith=" + offsetZenith, date);
                     assertEquals(dateExpected.longValue(), date.getTime());
                 }
             }
